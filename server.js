@@ -1,4 +1,5 @@
 const http = require('http');
+const products = require('./data/products.json');
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
