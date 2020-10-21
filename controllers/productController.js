@@ -26,7 +26,15 @@ async function getProduct(req, res, id) {
   }
 }
 
+async function createProduct(req, res) {
+  try {
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getProducts,
   getProduct,
+  createProduct,
 };
