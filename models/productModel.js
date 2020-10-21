@@ -6,6 +6,13 @@ function findAll() {
   });
 }
 
+function findByID(id) {
+  return new Promise((resolve, reject) => {
+    const product = products.find((p) => p.id === id);
+    resolve(product);
+  });
+}
 module.exports = {
   findAll,
+  findByID,
 };
