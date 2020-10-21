@@ -12,7 +12,7 @@ async function getProducts(req, res) {
 }
 async function getProduct(req, res, id) {
   try {
-    const product = await Product.findById(id);
+    const product = await Product.findByID(id);
 
     if (!product) {
       res.writeHead(404, { 'Content-Type': 'application/json' });
