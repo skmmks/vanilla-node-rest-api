@@ -37,6 +37,7 @@ async function createProduct(req, res) {
     const newProduct = Product.create(product);
 
     res.writeHead(201, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(newProduct));
   } catch (error) {
     console.log(error);
   }
