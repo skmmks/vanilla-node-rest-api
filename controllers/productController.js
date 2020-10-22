@@ -35,6 +35,8 @@ async function createProduct(req, res) {
     };
 
     const newProduct = Product.create(product);
+
+    res.writeHead(201, { 'Content-Type': 'application/json' });
   } catch (error) {
     console.log(error);
   }
