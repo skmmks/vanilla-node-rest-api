@@ -28,6 +28,13 @@ async function getProduct(req, res, id) {
 
 async function createProduct(req, res) {
   try {
+    const product = {
+      title: 'Test Product',
+      description: 'This is a Test Product',
+      price: 100,
+    };
+
+    const newProduct = Product.create(product);
   } catch (error) {
     console.log(error);
   }
