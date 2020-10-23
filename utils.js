@@ -7,3 +7,7 @@ function writeDataToFile(filename, content) {
     }
   });
 }
+
+module.exports {
+    writeDataToFile
+}
