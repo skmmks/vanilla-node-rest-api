@@ -27,4 +27,5 @@ function create(product) {
 module.exports = {
   findAll,
   findByID,
+  create,
 };
