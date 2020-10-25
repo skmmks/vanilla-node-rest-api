@@ -34,6 +34,11 @@ async function createProduct(req, res) {
       price: 100,
     };
 
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+    });
+
     const newProduct = await Product.create(product);
 
     res.writeHead(201, { 'Content-Type': 'application/json' });
