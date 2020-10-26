@@ -34,12 +34,13 @@ async function createProduct(req, res) {
     });
 
     req.on('end', async () => {
-      const product = {
-        title: 'Test Product',
-        description: 'This is a Test Product',
-        price: 100,
-      };
       const { title, description, price } = JSON.parse(body);
+
+      const product = {
+        title,
+        description,
+        price,
+      };
       const newProduct = await Product.create(product);
 
       res.writeHead(201, { 'Content-Type': 'application/json' });
