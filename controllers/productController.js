@@ -52,6 +52,11 @@ async function updateProduct(req, res, id) {
   try {
     const product = await Product.findByID(id);
 
+    if (!product) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Product Not Found' }));
+    }
+
     const body = await getPostData(req);
 
     const { title, description, price } = JSON.parse(body);
