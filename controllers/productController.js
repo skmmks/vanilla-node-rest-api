@@ -60,14 +60,14 @@ async function updateProduct(req, res, id) {
 
       const { title, description, price } = JSON.parse(body);
 
-      const product = {
+      const productData = {
         title: title || product.title,
         description: description || product.description,
         price: price || product.price,
       };
     }
 
-    const newProduct = await Product.create(product);
+    const newProduct = await Product.create(id, productData);
 
     res.writeHead(201, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify(newProduct));
