@@ -61,9 +61,9 @@ async function updateProduct(req, res, id) {
       const { title, description, price } = JSON.parse(body);
 
       const product = {
-        title,
-        description,
-        price,
+        title: title || product.title,
+        description: description || product.description,
+        price: price || product.price,
       };
     }
 
