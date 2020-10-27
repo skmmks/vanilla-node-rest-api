@@ -48,8 +48,10 @@ async function createProduct(req, res) {
   }
 }
 
-async function updateProduct(req, res) {
+async function updateProduct(req, res, id) {
   try {
+    const product = await Product.findByID(id);
+
     const body = await getPostData(req);
 
     const { title, description, price } = JSON.parse(body);
