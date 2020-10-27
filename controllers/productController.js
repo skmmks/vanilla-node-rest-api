@@ -55,17 +55,18 @@ async function updateProduct(req, res, id) {
     if (!product) {
       res.writeHead(404, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Product Not Found' }));
+    } else {
+      const body = await getPostData(req);
+
+      const { title, description, price } = JSON.parse(body);
+
+      const product = {
+        title,
+        description,
+        price,
+      };
     }
 
-    const body = await getPostData(req);
-
-    const { title, description, price } = JSON.parse(body);
-
-    const product = {
-      title,
-      description,
-      price,
-    };
     const newProduct = await Product.create(product);
 
     res.writeHead(201, { 'Content-Type': 'application/json' });
