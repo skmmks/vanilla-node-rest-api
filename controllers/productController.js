@@ -48,6 +48,26 @@ async function createProduct(req, res) {
   }
 }
 
+async function updateProduct(req, res) {
+  try {
+    const body = await getPostData(req);
+
+    const { title, description, price } = JSON.parse(body);
+
+    const product = {
+      title,
+      description,
+      price,
+    };
+    const newProduct = await Product.create(product);
+
+    res.writeHead(201, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(newProduct));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getProducts,
   getProduct,
