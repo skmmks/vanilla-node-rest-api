@@ -67,10 +67,10 @@ async function updateProduct(req, res, id) {
       };
     }
 
-    const newProduct = await Product.create(id, productData);
+    const updatedProduct = await Product.update(id, productData);
 
-    res.writeHead(201, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify(newProduct));
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(updatedProduct));
   } catch (error) {
     console.log(error);
   }
