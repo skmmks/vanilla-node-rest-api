@@ -80,4 +80,5 @@ module.exports = {
   getProducts,
   getProduct,
   createProduct,
+  updateProduct,
 };
