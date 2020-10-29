@@ -32,11 +32,12 @@ function update(id, product) {
     products[index] = { id, ...product };
 
     writeDataToFile('./data/products.json', products);
-    resolve(newProduct);
+    resolve(products[index]);
   });
 }
 module.exports = {
   findAll,
   findByID,
   create,
+  update,
 };
